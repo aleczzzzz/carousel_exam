@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carousel</title>
+    <style>
+      .carousel img {
+        display: none;
+      }
+
+      .carousel img.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Carousel</h1>
+    <div class="carousel">
+      <img class="active" alt="First" src="https://via.placeholder.com/350x200?text=1" />
+      <img alt="Second" src="https://via.placeholder.com/350x200?text=2" />
+      <img alt="Third" src="https://via.placeholder.com/350x200?text=3" />
+      <img alt="Fourth" src="https://via.placeholder.com/350x200?text=4" />
+      <img alt="Fifth" src="https://via.placeholder.com/350x200?text=5" />
+    </div>
+    <script>
+      let imageIndex = 0;
+
+      const slide = () => {
+        const carousel = document.querySelector(".carousel");
+
+        carousel.querySelector(".active").classList.remove("active");
+
+        imageIndex++;
+
+        if (imageIndex === carousel.children.length) {
+          imageIndex = 0;
+        }
+
+        carousel.children[imageIndex].classList.add("active");
+      };
+
+      setInterval(slide, 1200);
+    </script>
+  </body>
+</html>
